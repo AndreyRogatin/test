@@ -17,21 +17,12 @@ class Db
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($data);
-        $res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+        return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+    }
 
-        if (empty($class)) {
-            return $res;
-        }
-
-        $arr = [];
-
-        foreach ($res as $row) {
-            $obj = new $class;
-            foreach ($row as $key => $value) {
-                $obj->$key = $value;
-            }
-            $arr[] = $obj;
-        }
-        return $arr;
+    public function execute(string $sql, array $data)
+    {
+        $sth = $this->dbh->prepare($sql);
+        return $sth->execute($data);
     }
 }
