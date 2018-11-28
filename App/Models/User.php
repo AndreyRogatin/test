@@ -3,21 +3,16 @@
 namespace App\Models;
 
 
-use App\Db;
-
-class User
+class User extends Model
 {
     protected static $table = 'users';
 
-    public $id;
     public $login;
     public $email;
     public $password;
 
-    public static function findAll()
+    public static function getTable()
     {
-        $sql = 'SELECT * FROM ' . self::$table;
-        $db = new Db;
-        return $db->query($sql, [], self::class);
+        return static::$table;
     }
 }

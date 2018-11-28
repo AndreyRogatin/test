@@ -3,21 +3,16 @@
 namespace App\Models;
 
 
-use App\Db;
-
-class Person
+class Person extends Model
 {
     public static $table = 'persons';
 
-    public $id;
     public $firstName;
     public $lastName;
     public $age;
 
-    public static function findAll()
+    public static function getTable()
     {
-        $sql = 'SELECT * FROM ' . self::$table;
-        $db = new Db;
-        return $db->query($sql, [], self::class);
+        return static::$table;
     }
 }

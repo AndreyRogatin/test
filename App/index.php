@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\User;
+use App\Models\Person;
 
 require __DIR__ . '/autoload.php';
 
-var_dump(User::findAll());
+var_dump(Person::findAll());
