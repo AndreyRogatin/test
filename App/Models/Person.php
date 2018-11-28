@@ -7,6 +7,8 @@ use App\Db;
 
 class Person
 {
+    public static $table = 'persons';
+
     public $id;
     public $firstName;
     public $lastName;
@@ -14,8 +16,8 @@ class Person
 
     public static function findAll()
     {
-        $sql = 'SELECT * FROM persons';
+        $sql = 'SELECT * FROM ' . self::$table;
         $db = new Db;
-        return $db->query($sql, [], 'App\Models\Person');
+        return $db->query($sql, [], self::class);
     }
 }
