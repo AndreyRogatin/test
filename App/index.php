@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Person;
+use App\Models\Product;
 
 require __DIR__ . '/autoload.php';
 
-var_dump(Person::findAll());
+var_dump(Product::findAll());
