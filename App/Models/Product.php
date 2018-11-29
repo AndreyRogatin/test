@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-class Product extends Model
+class Product extends Model implements Ordarable
 {
     protected static $table = 'products';
 
@@ -15,5 +15,15 @@ class Product extends Model
     public static function getTable()
     {
         return static::$table;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }
