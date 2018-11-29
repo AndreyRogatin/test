@@ -2,6 +2,7 @@
 
 use App\Models\Product;
 use App\Models\Ordarable;
+use App\Models\Singleton;
 
 require __DIR__ . '/autoload.php';
 
@@ -15,3 +16,7 @@ function showPrice(Ordarable $pr)
 showPrice($product);
 
 var_dump($product);
+
+$singleton = Singleton::getInstance();
+
+var_dump($singleton);
